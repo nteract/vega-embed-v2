@@ -1,12 +1,34 @@
 {
-  "name": "vega-embed-all",
+  "name": "vega-embed-2",
   "version": "1.0.0",
-  "description": "Vega 2/3 Vega-Lite 1/2",
-  "main": "index.js",
+  "description": "Bundled embedded Vega 2 and Vega-Lite 1 without node canvas",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "node cleanup.js",
+    "prepublishOnly": "npm run build && npm run clean",
+    "test": "node test.js"
+  },
+  "files": [
+    "dist"
+  ],
   "author": "Lukas Geiger",
   "license": "MIT",
   "dependencies": {
-    "vega-embed": "^3.20.0",
-    "vega-embed-v2": "^0.0.3"
+    "d3": "3.5.17",
+    "d3-cloud": "^1.2.5",
+    "datalib": "^1.9.1",
+    "json-stable-stringify": "^1.0.1"
+  },
+  "devDependencies": {
+    "rollup": "^0.66.6",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-ignore": "^1.0.4",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "vega": "^2.6.5",
+    "vega-embed": "^2.2.0",
+    "vega-lite": "^1.3.1"
   }
 }
