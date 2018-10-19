@@ -1,0 +1,12 @@
+{
+  "name": "vega-embed-all",
+  "version": "1.0.0",
+  "description": "Vega 2/3 Vega-Lite 1/2",
+  "main": "index.js",
+  "author": "Lukas Geiger",
+  "license": "MIT",
+  "dependencies": {
+    "vega-embed": "^3.20.0",
+    "vega-embed-v2": "^0.0.3"
+  }
+}
