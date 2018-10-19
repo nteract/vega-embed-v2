@@ -1,5 +1,5 @@
 {
-  "name": "vega-embed-2",
+  "name": "@nteract/vega-embed-v2",
   "version": "1.0.0",
   "description": "Bundled embedded Vega 2 and Vega-Lite 1 without node canvas",
   "main": "dist/index.cjs.js",
