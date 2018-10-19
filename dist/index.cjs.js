@@ -173,7 +173,7 @@ function Node(graph) {
 var Flags = Node.Flags = {
   Router:     0x01, // Responsible for propagating tuples, cannot be skipped.
   Collector:  0x02, // Holds a materialized dataset, pulse node to reflow.
-  Produces:   0x04, // Produces new tuples. 
+  Produces:   0x04, // Produces new tuples.
   Mutates:    0x08, // Sets properties of incoming tuples.
   Reflows:    0x10, // Forwards a reflow pulse.
   Batch:      0x20  // Performs batch data processing, needs collector.
@@ -208,7 +208,7 @@ prototype.rank = function() {
 };
 
 prototype.rerank = function() {
-  var g = this._graph, 
+  var g = this._graph,
       q = [this],
       cur;
 
@@ -226,7 +226,7 @@ prototype.qrank = function(/* set */) {
   return (this._qrank = this._rank, this);
 };
 
-prototype.last = function(stamp) { 
+prototype.last = function(stamp) {
   if (!arguments.length) return this._stamp;
   return (this._stamp = stamp, this);
 };
@@ -319,7 +319,7 @@ prototype.addListener = function(l) {
 
 prototype.removeListener = function(l) {
   if (!this._listeners._ids[l._id]) return false;
-  
+
   var idx = this._listeners.indexOf(l),
       b = idx >= 0;
 
@@ -969,7 +969,7 @@ prototype$5.signalRef = function(ref) {
 
 prototype$5.requestIndex = function(data, field) {
   var ri  = this._requestedIndexes,
-      reg = ri[data] || (ri[data] = {}); 
+      reg = ri[data] || (ri[data] = {});
   return (reg[field] = true, this);
 };
 
@@ -995,7 +995,7 @@ prototype$5.buildIndexes = function() {
 
 // Stamp should be specified with caution. It is necessary for inline datasources,
 // which need to be populated during the same cycle even though propagation has
-// passed that part of the dataflow graph. 
+// passed that part of the dataflow graph.
 // If skipSignals is true, Signal nodes do not get reevaluated but their listeners
 // are queued for propagation. This is useful when setting signal values in batch
 // (e.g., time travel to the initial state).
@@ -1861,7 +1861,7 @@ properties.schema = {
         // Area- and line-mark properties
         "interpolate": valueSchema(["linear", "linear-closed",
           "step", "step-before", "step-after",
-          "basis", "basis-open", "basis-closed", 
+          "basis", "basis-open", "basis-closed",
           "cardinal", "cardinal-open", "cardinal-closed",
           "bundle", "monotone"]),
         "tension": {"$ref": "#/refs/numberValue"},
@@ -2174,7 +2174,7 @@ function bezier(params) {
   if (bezierCache[key]) {
     return bezierCache[key];
   }
-  
+
   var cx = params[0],
       cy = params[1],
       th0 = params[2],
@@ -3000,7 +3000,7 @@ function draw(g, scene, bounds) {
     // restore graphics context
     if (bounds) bounds.translate(gx, gy);
     g.restore();
-  }    
+  }
 }
 
 function pick$2(g, scene, x, y, gx, gy) {
@@ -3111,7 +3111,7 @@ var image = {
 };
 
 var linePath = svg.path.line;
-    
+
 function path$3(g, items) {
   var o = items[0],
       p = o.pathCache || (o.pathCache = parse(linePath(items)));
@@ -3198,7 +3198,7 @@ function draw$3(g, scene, bounds) {
 
     opac = o.opacity == null ? 1 : o.opacity;
     if (opac === 0) continue;
-      
+
     x1 = o.x || 0;
     y1 = o.y || 0;
     x2 = o.x2 != null ? o.x2 : x1;
@@ -3501,7 +3501,7 @@ function instance(w, h) {
 }
 
 function resize$1(canvas, w, h, p, retina) {
-  var g = this._ctx = canvas.getContext('2d'), 
+  var g = this._ctx = canvas.getContext('2d'),
       s = 1;
 
   canvas.width = w + p.left + p.right;
@@ -3550,7 +3550,7 @@ function lineDash(canvas) {
 
   var NOOP = function() {},
       NODASH = [];
-  
+
   if (g.setLineDash) {
     g.vgLineDash = function(dash) { this.setLineDash(dash || NODASH); };
     g.vgLineDashOffset = function(off) { this.lineDashOffset = off; };
@@ -3880,7 +3880,7 @@ function markBounds(mark, bounds, opt) {
   }
 
   bounds = bounds || mark.bounds && mark.bounds.clear() || new Bounds_1();
-  if (hasi) {  
+  if (hasi) {
     for (i=0, n=items.length; i<n; ++i) {
       bounds.union(itemBounds(items[i], func, opt));
     }
@@ -4165,7 +4165,7 @@ var CanvasHandler_1 = CanvasHandler;
 
 function ImageLoader(loadConfig) {
   this._pending = 0;
-  this._config = loadConfig || ImageLoader.Config; 
+  this._config = loadConfig || ImageLoader.Config;
 }
 
 // Overridable global default load configuration
@@ -4365,7 +4365,7 @@ prototype$b.render = function(scene, items) {
 
   // render
   this.draw(g, scene, b);
-  
+
   // takedown
   g.restore();
   this._scene = null; // clear scene cache
@@ -4383,7 +4383,7 @@ prototype$b.clear = function(x, y, w, h) {
   g.clearRect(x, y, w, h);
   if (this._bgcolor != null) {
     g.fillStyle = this._bgcolor;
-    g.fillRect(x, y, w, h); 
+    g.fillRect(x, y, w, h);
   }
 };
 
@@ -4667,15 +4667,15 @@ prototype$d.background = function(bgcolor) {
 
 prototype$d.resize = function(width, height, padding) {
   base$3.resize.call(this, width, height, padding);
-  
+
   if (this._svg) {
     var w = this._width,
         h = this._height,
         p = this._padding;
-  
+
     this._svg.setAttribute('width', w + p.left + p.right);
     this._svg.setAttribute('height', h + p.top + p.bottom);
-    
+
     this._root.setAttribute('transform', 'translate('+p.left+','+p.top+')');
   }
 
@@ -4743,7 +4743,7 @@ prototype$d.updateDefs = function() {
       svg$$1.removeChild(el);
       defs.el = null;
     } else {
-      dom.clear(el, index);      
+      dom.clear(el, index);
     }
   }
 };
@@ -4757,7 +4757,7 @@ function updateGradient(el, grad, index) {
   el.setAttribute('x2', grad.x2);
   el.setAttribute('y1', grad.y1);
   el.setAttribute('y2', grad.y2);
-  
+
   for (i=0, n=grad.stops.length; i<n; ++i) {
     stop = dom.child(el, i, 'stop', ns);
     stop.setAttribute('offset', grad.stops[i].offset);
@@ -5124,17 +5124,17 @@ prototype$e.buildDefs = function() {
       y1: def.y1,
       y2: def.y2
     });
-    
+
     for (i=0; i<stops.length; ++i) {
       defs += openTag('stop', {
         offset: stops[i].offset,
         'stop-color': stops[i].color
       }) + closeTag('stop');
     }
-    
+
     defs += closeTag('linearGradient');
   }
-  
+
   for (id in all.clipping) {
     def = all.clipping[id];
 
@@ -5149,7 +5149,7 @@ prototype$e.buildDefs = function() {
 
     defs += closeTag('clipPath');
   }
-  
+
   return (defs.length > 0) ? openTag('defs') + defs + closeTag('defs') : '';
 };
 
@@ -8917,7 +8917,7 @@ prototype$B.batchTransform = function(input, data) {
   var rank  = this._output.rank,
       norm  = this.param('normalize'),
       field = this.param('field').accessor,
-      keys = {}, 
+      keys = {},
       i, len = data.length, klen, d, f;
 
   // If we have a field accessor, first compile distinct keys.
@@ -14754,7 +14754,7 @@ parseRootMark.schema = {
             },
             "strokeDash": {
               "oneOf": [
-                {"type": "array", "items": {"type": "number"}}, 
+                {"type": "array", "items": {"type": "number"}},
                 {"$ref": "#/refs/signal"}
               ]
             },
@@ -17448,7 +17448,7 @@ function HeadlessView(width, height, model) {
   this._renderers = {canvas: canvas$3, svg: svg$2};
 }
 
-var prototype$K = (HeadlessView.prototype = new View_1());
+var prototype$K = (HeadlessView.prototype = new View());
 
 prototype$K.renderer = function(type) {
   if(type) this._type = type;
@@ -25110,7 +25110,7 @@ function select(el, param) {
     .attr('value', vg.util.identity)
     .attr('selected', function(x) { return x === param.value || null; })
     .text(vg.util.identity);
-  
+
   var node = sl.node();
   return {
     dom: [node],
