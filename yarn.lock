@@ -1623,7 +1623,7 @@ vega-dataflow@3, vega-dataflow@^3.1:
     vega-loader "2"
     vega-util "1"
 
-"vega-datasets@github:vega/vega-datasets#gh-pages":
+vega-datasets@vega/vega-datasets#gh-pages:
   version "1.20.0"
   resolved "https://codeload.github.com/vega/vega-datasets/tar.gz/36322e4ad7e30265a48ac2b046d01d86f2a90a27"
 
